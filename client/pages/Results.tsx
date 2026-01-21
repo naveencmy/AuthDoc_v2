@@ -1,51 +1,120 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CheckCircle, DownloadCloud, RefreshCw } from "lucide-react";
 import ResultsTable, { ExtractionResult } from "@/components/ResultsTable";
 import RulePreview from "@/components/RulePreview";
 import ExplanationPanel from "@/components/ExplanationPanel";
 
+type OrganizationPolicy = "strict" | "lenient";
+
+// Mock configuration for University A (Strict)
+const strictPolicy = {
+  name: "University A (Strict)",
+  requiredFields: ["gpa", "cgpa", "result_status"],
+  rules: [
+    "GPA must be between 0 and 10",
+    "Result depends on subject grades",
+    "CGPA deviation ≤ 1.0",
+  ],
+};
+
+// Mock configuration for University B (Lenient)
+const lenientPolicy = {
+  name: "University B (Lenient)",
+  requiredFields: ["gpa", "result_status"],
+  rules: [
+    "GPA must be between 5 and 10",
+    "CGPA deviation ≤ 2.0",
+  ],
+};
+
+// Mock results for Strict policy
+const strictResults: ExtractionResult[] = [
+  {
+    field: "Student Name",
+    value: "Naveen Kumar M E",
+    status: "VERIFIED",
+    reason: "Clear text match with confidence 98%",
+  },
+  {
+    field: "GPA",
+    value: "7.85",
+    status: "VERIFIED",
+    reason: "Within allowed range (0-10)",
+  },
+  {
+    field: "CGPA",
+    value: "6.10",
+    status: "FLAGGED",
+    reason: "Deviation from GPA exceeds threshold (1.0 > 1.0)",
+  },
+  {
+    field: "Result",
+    value: "PASS",
+    status: "FLAGGED",
+    reason: "Subject grade inconsistency detected",
+  },
+  {
+    field: "Semester",
+    value: "Fall 2024",
+    status: "VERIFIED",
+    reason: "Date format valid and parseable",
+  },
+  {
+    field: "Institution",
+    value: "XYZ University",
+    status: "VERIFIED",
+    reason: "Institution recognized in database",
+  },
+];
+
+// Mock results for Lenient policy (CGPA becomes verified, but Result remains flagged)
+const lenientResults: ExtractionResult[] = [
+  {
+    field: "Student Name",
+    value: "Naveen Kumar M E",
+    status: "VERIFIED",
+    reason: "Clear text match with confidence 98%",
+  },
+  {
+    field: "GPA",
+    value: "7.85",
+    status: "VERIFIED",
+    reason: "Within allowed range (5-10)",
+  },
+  {
+    field: "CGPA",
+    value: "6.10",
+    status: "VERIFIED",
+    reason: "Deviation from GPA within threshold (1.75 ≤ 2.0)",
+  },
+  {
+    field: "Result",
+    value: "PASS",
+    status: "FLAGGED",
+    reason: "Subject grade inconsistency detected",
+  },
+  {
+    field: "Semester",
+    value: "Fall 2024",
+    status: "VERIFIED",
+    reason: "Date format valid and parseable",
+  },
+  {
+    field: "Institution",
+    value: "XYZ University",
+    status: "VERIFIED",
+    reason: "Institution recognized in database",
+  },
+];
+
 export default function Results() {
   const navigate = useNavigate();
+  const [selectedPolicy, setSelectedPolicy] = useState<OrganizationPolicy>("strict");
 
-  // Mock API response data
-  const mockResults: ExtractionResult[] = [
-    {
-      field: "Student Name",
-      value: "Naveen Kumar M E",
-      status: "VERIFIED",
-      reason: "Clear text match with confidence 98%",
-    },
-    {
-      field: "GPA",
-      value: "7.85",
-      status: "VERIFIED",
-      reason: "Within allowed range (0-10)",
-    },
-    {
-      field: "CGPA",
-      value: "6.10",
-      status: "FLAGGED",
-      reason: "Deviation from GPA exceeds threshold (1.75 > 1.5)",
-    },
-    {
-      field: "Result",
-      value: "PASS",
-      status: "FLAGGED",
-      reason: "Subject grade inconsistency detected",
-    },
-    {
-      field: "Semester",
-      value: "Fall 2024",
-      status: "VERIFIED",
-      reason: "Date format valid and parseable",
-    },
-    {
-      field: "Institution",
-      value: "XYZ University",
-      status: "VERIFIED",
-      reason: "Institution recognized in database",
-    },
-  ];
+  // Select results based on policy
+  const mockResults = selectedPolicy === "strict" ? strictResults : lenientResults;
+  const currentPolicy = selectedPolicy === "strict" ? strictPolicy : lenientPolicy;
 
   const flaggedCount = mockResults.filter(
     (r) => r.status === "FLAGGED"
