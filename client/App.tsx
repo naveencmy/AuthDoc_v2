@@ -31,7 +31,22 @@ const App = () => (
   </QueryClientProvider>
 );
 
-const rootElement = document.getElementById("root");
-if (rootElement && rootElement.children.length === 0) {
-  createRoot(rootElement).render(<App />);
+let root: ReturnType<typeof createRoot> | null = null;
+
+function initializeApp() {
+  const rootElement = document.getElementById("root");
+  if (!rootElement) return;
+
+  if (!root) {
+    root = createRoot(rootElement);
+  }
+  root.render(<App />);
+}
+
+initializeApp();
+
+if (import.meta.hot) {
+  import.meta.hot.accept(["./pages/Index", "./pages/Upload", "./pages/Results"], () => {
+    initializeApp();
+  });
 }
