@@ -215,9 +215,48 @@ export default function Results() {
           </div>
         )}
 
+        {/* Organization Policy Selector */}
+        <div className="mb-8">
+          <div className="border border-gray-200 rounded-lg bg-white p-6">
+            <h3 className="text-sm font-semibold text-gray-700 mb-4">
+              Organization Policy
+            </h3>
+
+            <div className="flex flex-col sm:flex-row gap-3 mb-4">
+              <button
+                onClick={() => setSelectedPolicy("strict")}
+                className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all ${
+                  selectedPolicy === "strict"
+                    ? "bg-blue-600 text-white border border-blue-600"
+                    : "bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                University A (Strict)
+              </button>
+              <button
+                onClick={() => setSelectedPolicy("lenient")}
+                className={`flex-1 px-4 py-3 rounded-lg font-medium transition-all ${
+                  selectedPolicy === "lenient"
+                    ? "bg-blue-600 text-white border border-blue-600"
+                    : "bg-gray-50 text-gray-700 border border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                University B (Lenient)
+              </button>
+            </div>
+
+            <p className="text-sm text-gray-600">
+              Organizations configure what they trust. AuthDoc enforces the selected policy.
+            </p>
+          </div>
+        </div>
+
         {/* Rule Preview */}
         <div className="mb-8">
-          <RulePreview />
+          <RulePreview
+            requiredFields={currentPolicy.requiredFields}
+            rules={currentPolicy.rules}
+          />
         </div>
 
         {/* Action Buttons */}
