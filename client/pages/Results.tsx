@@ -123,10 +123,16 @@ export default function Results() {
     (r) => r.status === "VERIFIED"
   ).length;
 
-  const explanations = [
-    "CGPA flagged because deviation from GPA exceeds configured threshold of 1.5",
-    "Result status flagged due to failed subject detected in transcript",
-  ];
+  // Dynamic explanations based on policy
+  const explanations =
+    selectedPolicy === "strict"
+      ? [
+          "CGPA flagged because deviation from GPA exceeds configured threshold of 1.0",
+          "Result status flagged due to failed subject detected in transcript",
+        ]
+      : [
+          "Result status flagged due to failed subject detected in transcript",
+        ];
 
   const overallStatus = flaggedCount === 0 ? "All Clear" : "Review Required";
 
