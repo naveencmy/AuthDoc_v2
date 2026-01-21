@@ -22,10 +22,7 @@ const strictPolicy = {
 const lenientPolicy = {
   name: "University B (Lenient)",
   requiredFields: ["gpa", "result_status"],
-  rules: [
-    "GPA must be between 5 and 10",
-    "CGPA deviation ≤ 2.0",
-  ],
+  rules: ["GPA must be between 5 and 10", "CGPA deviation ≤ 2.0"],
 };
 
 // Mock results for Strict policy
@@ -110,17 +107,18 @@ const lenientResults: ExtractionResult[] = [
 
 export default function Results() {
   const navigate = useNavigate();
-  const [selectedPolicy, setSelectedPolicy] = useState<OrganizationPolicy>("strict");
+  const [selectedPolicy, setSelectedPolicy] =
+    useState<OrganizationPolicy>("strict");
 
   // Select results based on policy
-  const mockResults = selectedPolicy === "strict" ? strictResults : lenientResults;
-  const currentPolicy = selectedPolicy === "strict" ? strictPolicy : lenientPolicy;
+  const mockResults =
+    selectedPolicy === "strict" ? strictResults : lenientResults;
+  const currentPolicy =
+    selectedPolicy === "strict" ? strictPolicy : lenientPolicy;
 
-  const flaggedCount = mockResults.filter(
-    (r) => r.status === "FLAGGED"
-  ).length;
+  const flaggedCount = mockResults.filter((r) => r.status === "FLAGGED").length;
   const verifiedCount = mockResults.filter(
-    (r) => r.status === "VERIFIED"
+    (r) => r.status === "VERIFIED",
   ).length;
 
   // Dynamic explanations based on policy
@@ -130,9 +128,7 @@ export default function Results() {
           "CGPA flagged because deviation from GPA exceeds configured threshold of 1.0",
           "Result status flagged due to failed subject detected in transcript",
         ]
-      : [
-          "Result status flagged due to failed subject detected in transcript",
-        ];
+      : ["Result status flagged due to failed subject detected in transcript"];
 
   const overallStatus = flaggedCount === 0 ? "All Clear" : "Review Required";
 
@@ -142,7 +138,10 @@ export default function Results() {
       <header className="border-b border-gray-100 bg-white sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 md:px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
+            <div
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={() => navigate("/")}
+            >
               <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center">
                 <CheckCircle className="w-5 h-5 text-white" />
               </div>
@@ -166,11 +165,13 @@ export default function Results() {
                 Document: semester_grades_fall2024.pdf
               </p>
             </div>
-            <div className={`px-4 py-2 rounded-lg font-semibold ${
-              flaggedCount === 0
-                ? "bg-green-100 text-green-700"
-                : "bg-amber-100 text-amber-700"
-            }`}>
+            <div
+              className={`px-4 py-2 rounded-lg font-semibold ${
+                flaggedCount === 0
+                  ? "bg-green-100 text-green-700"
+                  : "bg-amber-100 text-amber-700"
+              }`}
+            >
               {overallStatus}
             </div>
           </div>
@@ -185,11 +186,15 @@ export default function Results() {
             </div>
             <div className="p-4 bg-white border border-gray-200 rounded-lg">
               <p className="text-sm text-gray-600 mb-1">Verified</p>
-              <p className="text-2xl font-bold text-green-600">{verifiedCount}</p>
+              <p className="text-2xl font-bold text-green-600">
+                {verifiedCount}
+              </p>
             </div>
             <div className="p-4 bg-white border border-gray-200 rounded-lg">
               <p className="text-sm text-gray-600 mb-1">Flagged</p>
-              <p className="text-2xl font-bold text-amber-600">{flaggedCount}</p>
+              <p className="text-2xl font-bold text-amber-600">
+                {flaggedCount}
+              </p>
             </div>
             <div className="p-4 bg-white border border-gray-200 rounded-lg">
               <p className="text-sm text-gray-600 mb-1">Accuracy</p>
@@ -246,7 +251,8 @@ export default function Results() {
             </div>
 
             <p className="text-sm text-gray-600">
-              Organizations configure what they trust. AuthDoc enforces the selected policy.
+              Organizations configure what they trust. AuthDoc enforces the
+              selected policy.
             </p>
           </div>
         </div>
@@ -309,8 +315,7 @@ export default function Results() {
                 <span>Missing</span>
               </div>
               <p className="text-sm text-gray-600">
-                Required field could not be found or extracted from the
-                document
+                Required field could not be found or extracted from the document
               </p>
             </div>
           </div>

@@ -23,7 +23,9 @@ export default function ExplanationPanel({
       <ul className="space-y-2">
         {explanations.map((explanation, index) => (
           <li key={index} className="text-sm text-amber-800 flex gap-3">
-            <span className="text-amber-600 font-semibold flex-shrink-0">•</span>
+            <span className="text-amber-600 font-semibold flex-shrink-0">
+              •
+            </span>
             <span>{explanation}</span>
           </li>
         ))}
