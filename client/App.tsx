@@ -41,10 +41,14 @@ function initializeApp() {
   const rootElement = document.getElementById("root");
   if (!rootElement) return;
 
-  if (!root) {
-    root = createRoot(rootElement);
+  try {
+    if (!root) {
+      root = createRoot(rootElement);
+    }
+    root.render(<App />);
+  } catch (error) {
+    console.error("Failed to initialize app:", error);
   }
-  root.render(<App />);
 }
 
 initializeApp();
@@ -52,6 +56,7 @@ initializeApp();
 if (import.meta.hot) {
   import.meta.hot.accept(
     [
+      "./global.css",
       "./pages/Index",
       "./pages/Upload",
       "./pages/Results",
