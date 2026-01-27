@@ -26,7 +26,7 @@ const App = () => (
           <Route path="/upload" element={<Upload />} />
           <Route path="/results" element={<Results />} />
           <Route path="/batch-results" element={<BatchResults />} />
-          <Route path="/candidate/:id" element={<CandidateDetail />} />
+          <Route path="/verify/:candidateId" element={<VerifyCandidate />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
