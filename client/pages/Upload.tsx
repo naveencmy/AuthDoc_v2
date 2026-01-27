@@ -45,7 +45,8 @@ export default function Upload() {
             Batch Upload Academic Documents
           </h1>
           <p className="text-gray-600">
-            Upload one or more semester grade sheets for extraction and verification
+            Upload one or more semester grade sheets for extraction and
+            verification
           </p>
         </div>
 
@@ -74,9 +75,7 @@ export default function Upload() {
             </li>
             <li className="flex gap-3">
               <span className="text-blue-600 font-bold flex-shrink-0">3.</span>
-              <span>
-                You'll see a batch summary table with all results
-              </span>
+              <span>You'll see a batch summary table with all results</span>
             </li>
             <li className="flex gap-3">
               <span className="text-blue-600 font-bold flex-shrink-0">4.</span>
