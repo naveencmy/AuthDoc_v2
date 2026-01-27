@@ -10,7 +10,7 @@ import Index from "./pages/Index";
 import Upload from "./pages/Upload";
 import Results from "./pages/Results";
 import BatchResults from "./pages/BatchResults";
-import CandidateDetail from "./pages/CandidateDetail";
+import VerifyCandidate from "./pages/VerifyCandidate";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
