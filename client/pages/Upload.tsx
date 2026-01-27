@@ -7,14 +7,14 @@ export default function Upload() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleUpload = async (file: File) => {
+  const handleUpload = async (files: File[]) => {
     setIsLoading(true);
 
-    // Simulate upload and processing delay
+    // Simulate upload and processing delay for multiple files
     setTimeout(() => {
       setIsLoading(false);
-      // Navigate to results page with mock data
-      navigate("/results");
+      // Navigate to batch results page
+      navigate("/batch-results");
     }, 3000);
   };
 
