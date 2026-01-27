@@ -63,7 +63,7 @@ export default function UploadComponent({
           <div className="flex flex-col items-center gap-3">
             <Loader2 className="h-10 w-10 text-blue-500 animate-spin" />
             <p className="text-lg font-medium text-gray-700">
-              Extracting and verifying document...
+              Extracting and verifying documents...
             </p>
             <p className="text-sm text-gray-500">Please wait</p>
           </div>
