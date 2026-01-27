@@ -18,7 +18,10 @@ const strictPolicy = {
 };
 
 // Mock candidate data mapping
-const candidateDataMap: Record<string, { name: string; results: ExtractionResult[]; explanations: string[] }> = {
+const candidateDataMap: Record<
+  string,
+  { name: string; results: ExtractionResult[]; explanations: string[] }
+> = {
   "1": {
     name: "Naveen Kumar M E",
     results: [

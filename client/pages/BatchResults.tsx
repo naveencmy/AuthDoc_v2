@@ -161,15 +161,11 @@ export default function BatchResults() {
           </div>
           <div className="p-4 bg-white border border-gray-200 rounded-lg">
             <p className="text-sm text-gray-600 mb-1">Verified</p>
-            <p className="text-2xl font-bold text-green-600">
-              {verifiedCount}
-            </p>
+            <p className="text-2xl font-bold text-green-600">{verifiedCount}</p>
           </div>
           <div className="p-4 bg-white border border-gray-200 rounded-lg">
             <p className="text-sm text-gray-600 mb-1">Flagged</p>
-            <p className="text-2xl font-bold text-amber-600">
-              {flaggedCount}
-            </p>
+            <p className="text-2xl font-bold text-amber-600">{flaggedCount}</p>
           </div>
         </div>
 
@@ -202,7 +198,9 @@ export default function BatchResults() {
                     key={candidate.id}
                     onClick={() => navigate(`/verify/${candidate.id}`)}
                     className={`border-b border-gray-100 cursor-pointer transition-colors ${
-                      index % 2 === 0 ? "bg-white hover:bg-blue-50" : "bg-gray-50 hover:bg-blue-50"
+                      index % 2 === 0
+                        ? "bg-white hover:bg-blue-50"
+                        : "bg-gray-50 hover:bg-blue-50"
                     }`}
                   >
                     <td className="px-6 py-4 text-sm font-medium text-gray-900">
@@ -233,8 +231,8 @@ export default function BatchResults() {
             Batch Verification Workflow
           </h3>
           <p className="text-gray-600 mb-4">
-            AuthDoc verifies documents at scale and allows humans to review
-            only flagged cases. Organizations can:
+            AuthDoc verifies documents at scale and allows humans to review only
+            flagged cases. Organizations can:
           </p>
           <ul className="space-y-2 text-sm text-gray-600">
             <li className="flex items-start gap-3">
