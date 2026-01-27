@@ -41,19 +41,19 @@ function initializeApp() {
   const rootElement = document.getElementById("root");
   if (!rootElement) return;
 
-  try {
-    if (!root) {
-      root = createRoot(rootElement);
-    }
-    root.render(<App />);
-  } catch (error) {
-    console.error("Failed to initialize app:", error);
+  if (!root) {
+    root = createRoot(rootElement);
   }
+  root.render(<App />);
 }
 
 initializeApp();
 
 if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    // Clean up is handled by React, just keep the root reference
+  });
+
   import.meta.hot.accept(
     [
       "./global.css",
