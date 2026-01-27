@@ -55,6 +55,7 @@ export default function UploadComponent({
         className="hidden"
         id="file-input"
         disabled={isLoading}
+        multiple
       />
 
       <label htmlFor="file-input" className="cursor-pointer block">
