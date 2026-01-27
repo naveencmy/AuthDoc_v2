@@ -71,10 +71,10 @@ export default function UploadComponent({
           <div className="flex flex-col items-center gap-3">
             <Cloud className="h-10 w-10 text-blue-500" />
             <p className="text-lg font-medium text-gray-700">
-              Upload a semester grade sheet
+              Upload semester grade sheets
             </p>
             <p className="text-sm text-gray-500">
-              Drag and drop your PDF or image, or click to browse
+              Drag and drop one or more files, or click to browse
             </p>
             <p className="text-xs text-gray-400 mt-2">
               Supported formats: PDF, PNG, JPG, JPEG
