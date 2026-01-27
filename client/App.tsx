@@ -9,6 +9,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Upload from "./pages/Upload";
 import Results from "./pages/Results";
+import BatchResults from "./pages/BatchResults";
+import CandidateDetail from "./pages/CandidateDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/batch-results" element={<BatchResults />} />
+          <Route path="/candidate/:id" element={<CandidateDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -46,7 +50,7 @@ function initializeApp() {
 initializeApp();
 
 if (import.meta.hot) {
-  import.meta.hot.accept(["./pages/Index", "./pages/Upload", "./pages/Results"], () => {
+  import.meta.hot.accept(["./pages/Index", "./pages/Upload", "./pages/Results", "./pages/BatchResults", "./pages/CandidateDetail"], () => {
     initializeApp();
   });
 }
