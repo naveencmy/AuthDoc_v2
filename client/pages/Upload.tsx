@@ -42,10 +42,10 @@ export default function Upload() {
       <main className="max-w-4xl mx-auto px-4 md:px-6 py-12 md:py-16">
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-            Upload Academic Document
+            Batch Upload Academic Documents
           </h1>
           <p className="text-gray-600">
-            Upload a semester grade sheet for extraction and verification
+            Upload one or more semester grade sheets for extraction and verification
           </p>
         </div>
 
