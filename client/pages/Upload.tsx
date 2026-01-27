@@ -33,7 +33,7 @@ export default function Upload() {
               </div>
               <span className="text-xl font-bold text-gray-900">AuthDoc</span>
             </div>
-            <div className="text-sm text-gray-600">Step 1 of 2</div>
+            <div className="text-sm text-gray-600">Batch Upload</div>
           </div>
         </div>
       </header>
