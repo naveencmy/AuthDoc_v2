@@ -26,14 +26,14 @@ export default function UploadComponent({
     setIsDragOver(false);
     const files = e.dataTransfer.files;
     if (files.length > 0) {
-      onUpload(files[0]);
+      onUpload(Array.from(files));
     }
   };
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.currentTarget.files;
     if (files && files.length > 0) {
-      onUpload(files[0]);
+      onUpload(Array.from(files));
     }
   };
 
