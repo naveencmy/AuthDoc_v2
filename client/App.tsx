@@ -50,7 +50,7 @@ function initializeApp() {
 initializeApp();
 
 if (import.meta.hot) {
-  import.meta.hot.accept(["./pages/Index", "./pages/Upload", "./pages/Results", "./pages/BatchResults", "./pages/CandidateDetail"], () => {
+  import.meta.hot.accept(["./pages/Index", "./pages/Upload", "./pages/Results", "./pages/BatchResults", "./pages/VerifyCandidate"], () => {
     initializeApp();
   });
 }
