@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Cloud, Loader2 } from "lucide-react";
 
 interface UploadComponentProps {
-  onUpload: (file: File) => void;
+  onUpload: (files: File[]) => void;
   isLoading?: boolean;
 }
 
