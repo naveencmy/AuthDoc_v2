@@ -63,7 +63,7 @@ export default function Upload() {
             <li className="flex gap-3">
               <span className="text-blue-600 font-bold flex-shrink-0">1.</span>
               <span>
-                Your document will be processed by our AI extraction system
+                All documents will be processed by our AI extraction system
               </span>
             </li>
             <li className="flex gap-3">
@@ -75,7 +75,13 @@ export default function Upload() {
             <li className="flex gap-3">
               <span className="text-blue-600 font-bold flex-shrink-0">3.</span>
               <span>
-                You'll see a detailed report with verification results
+                You'll see a batch summary table with all results
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-blue-600 font-bold flex-shrink-0">4.</span>
+              <span>
+                Click any candidate to see detailed verification report
               </span>
             </li>
           </ul>
