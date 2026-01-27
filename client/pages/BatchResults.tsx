@@ -200,7 +200,7 @@ export default function BatchResults() {
                 {mockBatchData.map((candidate, index) => (
                   <tr
                     key={candidate.id}
-                    onClick={() => navigate(`/candidate/${candidate.id}`)}
+                    onClick={() => navigate(`/verify/${candidate.id}`)}
                     className={`border-b border-gray-100 cursor-pointer transition-colors ${
                       index % 2 === 0 ? "bg-white hover:bg-blue-50" : "bg-gray-50 hover:bg-blue-50"
                     }`}
