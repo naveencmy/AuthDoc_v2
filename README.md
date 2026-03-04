@@ -1,6 +1,6 @@
 # AuthDoc_Ops
 ## SYstem_Design Of the Architecture && Analysis of the System Level 
-### 1️ High-Level Architecture (Locked)
+### 1️ High-Level Architecture
 ```bash
 API Layer (Node.js)
     ↓
