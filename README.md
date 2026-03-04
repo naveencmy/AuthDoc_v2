@@ -34,7 +34,7 @@ Excel Export Service
    /db
    /utils
 ```
-# 2️ Backend Folder Structure (Senior-Level Clean)
+# 2️ Backend Folder Structure ( Base-Level Clean)
 Node.js Core Backend
 ```bash
 authdoc-enterprise/
