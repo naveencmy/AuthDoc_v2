@@ -22,7 +22,18 @@ Storage Layer (Postgres)
     ↓
 Excel Export Service
 ```
-
+# And the Backend Service  API Point
+```bash
+/authdoc-backend
+   /api
+   /workers
+   /services
+   /schemas
+   /export
+   /ocr-client
+   /db
+   /utils
+```
 # 2️ Backend Folder Structure (Senior-Level Clean)
 Node.js Core Backend
 ```bash
