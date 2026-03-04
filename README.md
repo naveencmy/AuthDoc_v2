@@ -1,6 +1,6 @@
-### AuthDoc_Ops
+# AuthDoc_Ops
 ## SYstem_Design Of the Architecture && Analysis of the System Level 
-# 1️ High-Level Architecture (Locked)
+### 1️ High-Level Architecture (Locked)
 ```bash
 API Layer (Node.js)
     ↓
@@ -22,7 +22,7 @@ Storage Layer (Postgres)
     ↓
 Excel Export Service
 ```
-# And the Backend Service  API Point
+### And the Backend Service  API Point
 ```bash
 /authdoc-backend
    /api
@@ -34,7 +34,7 @@ Excel Export Service
    /db
    /utils
 ```
-# 2️ Backend Folder Structure ( Base-Level Clean)
+### 2️ Backend Folder Structure ( Base-Level Clean)
 Node.js Core Backend
 ```bash
 authdoc-enterprise/
@@ -92,7 +92,7 @@ authdoc-enterprise/
 └── docker-compose.yml
 ```
 This is production-aligned.
-# 3️ End-to-End Processing Logic
+### 3️ End-to-End Processing Logic
 
 Now the important part.
 STEP 1 — Batch Upload API
@@ -178,7 +178,7 @@ process(job):
     saveDocumentRecord(batch_id, validatedFields)
 ```
 Everything modular.
-# 4️ OCR Microservice Structure (Python)
+### 4️ OCR Microservice Structure (Python)
 
 Keep it clean.
 
@@ -197,7 +197,7 @@ async def extract(file: UploadFile):
     }
 ```
 No validation logic here.
-# 5️ Field Extraction Logic (Core Design)
+### 5️ Field Extraction Logic (Core Design)
 
 You DO NOT hardcode.
 
@@ -221,7 +221,7 @@ If not found:
 
     value = null
 
-# 6️ Confidence Engine
+### 6️ Confidence Engine
 ```javascript 
 score(fields, confidence_map):
 
@@ -239,7 +239,7 @@ score(fields, confidence_map):
             status = MISSING
 ```
 This is realistic.
-# 7️ Validation Engine
+### 7️ Validation Engine
 
 Based on schema:
 ```javascript
@@ -251,7 +251,7 @@ validate(fields, schema):
 ```
 Optional fields:
 Leave empty.
-# 8️ Excel Export Engine
+### 8️ Excel Export Engine
 
 export.service.js
 ```javascript
@@ -267,7 +267,7 @@ generateExcel(batch_id):
 Template mapping loaded from JSON.
 
 Never hardcode column names.
-# 9️ Horizontal Scaling Strategy
+### 9️ Horizontal Scaling Strategy
 
 You scale by:
 
@@ -280,7 +280,7 @@ You scale by:
     Dockerizing services
 
 No architecture changes required.
-# 10 Failure Handling Strategy
+### 10 Failure Handling Strategy
 ```powershell
 You must handle:
 
